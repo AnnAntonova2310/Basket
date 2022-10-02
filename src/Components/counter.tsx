@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 const Counter = () => {
-    let count = 0;
+    const [count, setCount]=useState(0)
     const formatCount = () => {
         return count === 0 ? 'empty' : count
     }
@@ -11,13 +11,18 @@ const Counter = () => {
         return classes
     }
     const handlerIncrement = () => {
-        count = count + 1;
+        setCount((prevState)=>prevState+1)
+        console.log(count)
+    }
+    const handlerDecrement = () => {
+        setCount((prevState)=>prevState-1)
         console.log(count)
     }
     return (
         <>
             <span className={getBadgeClasses()}>{formatCount()}</span>
             <button className={'btn bg-primary m-2 btn-hover'} onClick={handlerIncrement}>+</button>
+            <button className={'btn bg-primary m-2 btn-hover'} onClick={handlerDecrement}>-</button>
         </>
     );
 };
