@@ -9,8 +9,6 @@
 .btn {
     border: none;
     padding: 10px 20px;
-
-
 }
 
 .btn:hover {
@@ -18,12 +16,9 @@
     transition-duration: 0.4s;
 }
 
-.bg-primary {
+.bg-green {
     background-color: #4CAF50;
     color: white;
-
-
-
 }
 
 .bg-warning {
@@ -43,4 +38,11 @@
 
 .m-2 {
     margin: 5px;
+}
+
+.tag {
+    font-size: 20px;
+    display: block;
+    width: 30px;
+    height: 20px;
 }
