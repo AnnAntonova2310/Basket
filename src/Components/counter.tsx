@@ -8,7 +8,7 @@ const Counter = () => {
     }
     const getBadgeClasses = () => {
         let classes = 'badge m-2 '
-        classes += count === 0 ? 'bg-warning' : 'bg-primary'
+        classes += count === 0 ? 'bg-warning' : 'bg-green'
         return classes
     }
     const handlerIncrement = () => {
@@ -19,9 +19,10 @@ const Counter = () => {
         setCount((prevState) => prevState - 1)
         console.log(count)
     }
-    const handlerTagChange = () => {
-        setTags(['tag4', 'tag5'])
+    const handlerTagChange = (id:any) => {
+        setTags(prevState => prevState.filter(tag=>tag!==id))
     }
+
     return (
         <>
             <ul>{
@@ -29,7 +30,7 @@ const Counter = () => {
                     <li
                         className={'btn bg-green m-2 tag' }
                         key={tag}
-                        onClick={handlerTagChange}
+                        onClick={()=>handlerTagChange(tag)}
                     >{tag}</li>))
             }
             </ul>
