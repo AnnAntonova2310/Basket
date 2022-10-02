@@ -22,18 +22,21 @@ const Counter = () => {
     const handlerTagChange = (id:any) => {
         setTags(prevState => prevState.filter(tag=>tag!==id))
     }
+    const renderTag=()=> {
+          return tag.length!==0? tag.map(tag => (
+            <li
+                className={'btn bg-green m-2 tag' }
+                key={tag}
+                onClick={()=>handlerTagChange(tag)}
+            >{tag}</li>)): 'No tags'
+    }
 
+    if (tag.length!==0){
+        return <ul>{renderTag()}</ul>
+    }
     return (
         <>
-            <ul>{
-                tag.map(tag => (
-                    <li
-                        className={'btn bg-green m-2 tag' }
-                        key={tag}
-                        onClick={()=>handlerTagChange(tag)}
-                    >{tag}</li>))
-            }
-            </ul>
+
             <span className={getBadgeClasses()}>{formatCount()}</span>
             <button className={'btn bg-green m-2 btn:hover'} onClick={handlerIncrement}>+</button>
             <button className={'btn bg-green m-2 btn:hover'} onClick={handlerDecrement}>-</button>
