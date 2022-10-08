@@ -1,28 +1,30 @@
-import React, {useState} from 'react';
+import React, {FC, useState} from 'react';
 
-const Counter = () => {
-    const [count, setCount] = useState(0)
-    const formatCount = () => {
-        return count === 0 ? 'empty' : count
+type tyu = {value: number}
+
+const Counter:FC<tyu> = ({value}) => {
+    const [valueCount, setValue] = useState(value)
+    const formatValue = () => {
+        return valueCount === 0 ? 'empty' : valueCount
     }
     const getBadgeClasses = () => {
         let classes = 'badge m-2 '
-        classes += count === 0 ? 'bg-warning' : 'bg-green'
+        classes += valueCount === 0 ? 'bg-warning' : 'bg-green'
         return classes
     }
     const handlerIncrement = () => {
-        setCount((prevState) => prevState + 1)
-        console.log(count)
+        setValue((prevState) => prevState + 1)
+        console.log(valueCount)
     }
     const handlerDecrement = () => {
-        setCount((prevState) => prevState - 1)
-        console.log(count)
+        setValue((prevState) => prevState - 1)
+        console.log(valueCount)
     }
 
     return (
         <div>
 
-            <span className={getBadgeClasses()}>{formatCount()}</span>
+            <span className={getBadgeClasses()}>{formatValue()}</span>
             <button className={'btn bg-green m-2 btn:hover'} onClick={handlerIncrement}>+</button>
             <button className={'btn bg-green m-2 btn:hover'} onClick={handlerDecrement}>-</button>
         </div>

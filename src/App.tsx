@@ -5,7 +5,7 @@ import CountersList from "./Components/CountersList";
 
 const App = () => {
     return (
-        <CountersList/>
+        <CountersList />
     )
 }
 
