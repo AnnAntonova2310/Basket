@@ -20,12 +20,12 @@ const Counter = () => {
     }
 
     return (
-        <>
+        <div>
 
             <span className={getBadgeClasses()}>{formatCount()}</span>
             <button className={'btn bg-green m-2 btn:hover'} onClick={handlerIncrement}>+</button>
             <button className={'btn bg-green m-2 btn:hover'} onClick={handlerDecrement}>-</button>
-        </>
+        </div>
     );
 };
 
