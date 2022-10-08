@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 
 const Counter = () => {
     const [count, setCount] = useState(0)
-    const [tag, setTags] = useState(['tag1', 'tag2', 'tag3'])
     const formatCount = () => {
         return count === 0 ? 'empty' : count
     }
@@ -19,21 +18,7 @@ const Counter = () => {
         setCount((prevState) => prevState - 1)
         console.log(count)
     }
-    const handlerTagChange = (id:any) => {
-        setTags(prevState => prevState.filter(tag=>tag!==id))
-    }
-    const renderTag=()=> {
-          return tag.length!==0? tag.map(tag => (
-            <li
-                className={'btn bg-green m-2 tag' }
-                key={tag}
-                onClick={()=>handlerTagChange(tag)}
-            >{tag}</li>)): 'No tags'
-    }
 
-    if (tag.length!==0){
-        return <ul>{renderTag()}</ul>
-    }
     return (
         <>
 
