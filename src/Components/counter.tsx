@@ -1,8 +1,12 @@
 import React, {FC, useState} from 'react';
 
-type tyu = {value: number}
+type tyu = {
+    value: number
+    name: string
+    // children: React.ReactNode
+}
 
-const Counter:FC<tyu> = ({value}) => {
+const Counter:FC<tyu> = ({value, name}) => {
     const [valueCount, setValue] = useState(value)
     const formatValue = () => {
         return valueCount === 0 ? 'empty' : valueCount
@@ -23,7 +27,7 @@ const Counter:FC<tyu> = ({value}) => {
 
     return (
         <div>
-
+           <span> {name} </span>
             <span className={getBadgeClasses()}>{formatValue()}</span>
             <button className={'btn bg-green m-2 btn:hover'} onClick={handlerIncrement}>+</button>
             <button className={'btn bg-green m-2 btn:hover'} onClick={handlerDecrement}>-</button>

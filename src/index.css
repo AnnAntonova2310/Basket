@@ -9,6 +9,7 @@
 .btn {
     border: none;
     padding: 10px 20px;
+    width: 50px;
 }
 
 .btn:hover {
@@ -19,11 +20,13 @@
 .bg-green {
     background-color: #0b7969;
     color: white;
+    width: 50px;
 }
 
 .bg-warning {
     background-color: yellow;
     color: black;
+    width: 50px;
 }
 
 .bg-error {
