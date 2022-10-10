@@ -11,8 +11,9 @@ const CountersList = () => {
         {id: 4, value: 0, name: 'Набор минималиста'},
     ]);
 
-    const handlerDelete = () => {
-        console.log('handlerDelete')
+    const handlerDelete = (id: number) => {
+        const newCounters = counters.filter(c=> c.id!==id)
+        setCounters(newCounters)
     }
 
     return (
@@ -21,6 +22,7 @@ const CountersList = () => {
 
                 <Counter
                     key={count.id}
+                    id={count.id}
                     value={count.value}
                     name={count.name}
                     deleteList = {handlerDelete}
