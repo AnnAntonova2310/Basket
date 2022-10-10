@@ -5,11 +5,13 @@ type tyu = {
     value: number
     name: string
     price?: string
-    deleteList: (id: number)=>void
+    deleteList: (id: number) => void
+    onIncrement: (id: number) => void
+    onDecrement: (id: number) => void
     // children: React.ReactNode
 }
 
-const Counter:FC<tyu> = ({id,value, name, deleteList}) => {
+const Counter: FC<tyu> = ({id, value, name, deleteList, onDecrement, onIncrement}) => {
     // const [valueCount, setValue] = useState(value)
     const formatValue = () => {
         return value === 0 ? 'empty' : value
@@ -19,22 +21,15 @@ const Counter:FC<tyu> = ({id,value, name, deleteList}) => {
         classes += value === 0 ? 'bg-warning' : 'bg-green'
         return classes
     }
-    const handlerIncrement = () => {
-        // setValue((prevState) => prevState + 1)
-        console.log(value)
-    }
-    const handlerDecrement = () => {
-        // setValue((prevState) => prevState - 1)
-        console.log(value)
-    }
+
 
     return (
         <div>
-           <span> {name} </span>
+            <span> {name} </span>
             <span className={getBadgeClasses()}>{formatValue()}</span>
-            <button className={'btn bg-green m-2 btn:hover'} onClick={handlerIncrement}>+</button>
-            <button className={'btn bg-green m-2 btn:hover'} onClick={handlerDecrement}>-</button>
-            <button className={'btn bg-error m-2 btn:hover'} onClick={()=>deleteList(id)}>Delete</button>
+            <button className={'btn bg-green m-2 btn:hover'} onClick={() => onIncrement(id)}>+</button>
+            <button className={'btn bg-green m-2 btn:hover'} onClick={()=> onDecrement(id)}>-</button>
+            <button className={'btn bg-error m-2 btn:hover'} onClick={() => deleteList(id)}>Delete</button>
         </div>
     );
 };
