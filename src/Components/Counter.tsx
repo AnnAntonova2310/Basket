@@ -4,6 +4,7 @@ type tyu = {
     id: number
     value: number
     name: string
+    price?: string
     deleteList: (id: number)=>void
     // children: React.ReactNode
 }
