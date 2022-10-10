@@ -10,22 +10,22 @@ type tyu = {
 }
 
 const Counter:FC<tyu> = ({id,value, name, deleteList}) => {
-    const [valueCount, setValue] = useState(value)
+    // const [valueCount, setValue] = useState(value)
     const formatValue = () => {
-        return valueCount === 0 ? 'empty' : valueCount
+        return value === 0 ? 'empty' : value
     }
     const getBadgeClasses = () => {
         let classes = 'badge m-2 '
-        classes += valueCount === 0 ? 'bg-warning' : 'bg-green'
+        classes += value === 0 ? 'bg-warning' : 'bg-green'
         return classes
     }
     const handlerIncrement = () => {
-        setValue((prevState) => prevState + 1)
-        console.log(valueCount)
+        // setValue((prevState) => prevState + 1)
+        console.log(value)
     }
     const handlerDecrement = () => {
-        setValue((prevState) => prevState - 1)
-        console.log(valueCount)
+        // setValue((prevState) => prevState - 1)
+        console.log(value)
     }
 
     return (
