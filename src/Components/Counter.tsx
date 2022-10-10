@@ -3,10 +3,11 @@ import React, {FC, useState} from 'react';
 type tyu = {
     value: number
     name: string
+    deleteList: ()=>void
     // children: React.ReactNode
 }
 
-const Counter:FC<tyu> = ({value, name}) => {
+const Counter:FC<tyu> = ({value, name, deleteList}) => {
     const [valueCount, setValue] = useState(value)
     const formatValue = () => {
         return valueCount === 0 ? 'empty' : valueCount
@@ -31,6 +32,7 @@ const Counter:FC<tyu> = ({value, name}) => {
             <span className={getBadgeClasses()}>{formatValue()}</span>
             <button className={'btn bg-green m-2 btn:hover'} onClick={handlerIncrement}>+</button>
             <button className={'btn bg-green m-2 btn:hover'} onClick={handlerDecrement}>-</button>
+            <button className={'btn bg-error m-2 btn:hover'} onClick={deleteList}>Delete</button>
         </div>
     );
 };

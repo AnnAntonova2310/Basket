@@ -9,7 +9,6 @@
 .btn {
     border: none;
     padding: 10px 20px;
-    width: 50px;
 }
 
 .btn:hover {
@@ -30,7 +29,7 @@
 }
 
 .bg-error {
-    background-color: red;
+    background-color: #a30000;
     color: white;
 }
 
